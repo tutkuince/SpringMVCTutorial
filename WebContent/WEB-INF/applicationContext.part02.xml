@@ -7,20 +7,24 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean
-		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+	<!-- <bean -->
+	<!-- class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" 
+		/> -->
 
-	<bean name="/page1"
-		class="io.spring.part02._01controller.Page01Controller" />
-	<bean name="/page2"
-		class="io.spring.part02._01controller.Page02Controller" />
-	<bean name="/page3"
-		class="io.spring.part02._01controller.Page03Controller" />
+	<!-- <bean name="/page1" -->
+	<!-- class="io.spring.part02._01controller.Page01Controller" /> -->
+	<!-- <bean name="/page2" -->
+	<!-- class="io.spring.part02._01controller.Page02Controller" /> -->
+	<!-- <bean name="/page3" -->
+	<!-- class="io.spring.part02._01controller.Page03Controller" /> -->
 
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/view/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+	<context:component-scan
+		base-package="io.spring.part02._01controller" />
+
+		<bean
+			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			<property name="prefix" value="/WEB-INF/view/" />
+			<property name="suffix" value=".jsp" />
+		</bean>
 
 </beans>
