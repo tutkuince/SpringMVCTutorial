@@ -19,7 +19,7 @@
 	<!-- class="io.spring.part02._01controller.Page03Controller" /> -->
 
 	<context:component-scan
-		base-package="io.spring.part02._01controller" />
+		base-package="io.spring.part02._01controller, io.spring.part02._02controller" />
 
 		<bean
 			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
