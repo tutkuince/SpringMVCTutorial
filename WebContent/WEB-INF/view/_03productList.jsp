@@ -4,9 +4,9 @@
 
 <c:set var="productUrlAll"
 	value="${pageContext.request.contextPath }/products/productList" />
-	<c:set var="productUrlCategory"
+<c:set var="productUrlCategory"
 	value="${pageContext.request.contextPath }/products/category" />
-	<c:set var="matrixUrl"
+<c:set var="matrixUrl"
 	value="${pageContext.request.contextPath }/products/brand" />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,19 +20,13 @@
 	<div>
 		<h1>Products</h1>
 		<ul>
-				<li class="">
-					<a href="${productUrlAll}">All Products</a>
-				</li>
-				<li>
-					<a href="${productUrlCategory}/laptop">Laptops</a>
-				</li>
-				<li class="">
-					<a href="${productUrlCategory}/tablet">Tablets</a>
-				</li>
-				<li class="">
-					<a href="${productUrlCategory}/smartPhone">Smart Phones</a>
-				</li>
-</ul>
+			<li class=""><a href="${productUrlAll}">All Products</a></li>
+			<li><a href="${productUrlCategory}/laptop">Laptops</a></li>
+			<li class=""><a href="${productUrlCategory}/tablet">Tablets</a>
+			</li>
+			<li class=""><a href="${productUrlCategory}/smartPhone">Smart
+					Phones</a></li>
+		</ul>
 		<ul>
 			<c:forEach items="${products }" var="product">
 				<li>${product.name }
@@ -41,9 +35,9 @@
 						<li><b>Unit Price</b> ${product.unitPrice}USD</li>
 						<li>Available <b>${product.unitsInStock }</b> units in stock
 						</li>
-						<li>
-							<a href="<c:url value="/products/productDetail?id=${product.productId }"/>">Go Full Details </a>
-						</li>
+						<li><a
+							href="<c:url value="/products/productDetail?id=${product.productId }"/>">Go
+								Full Details </a></li>
 					</ul>
 				</li>
 			</c:forEach>
