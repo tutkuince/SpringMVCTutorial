@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,10 +33,10 @@ public class ProductController {
 		return "_03productDetails";
 	}
 
-	@RequestMapping("/productsByCategory")
-	public String getProductsByCategory(@RequestParam(name = "categoryId") String category, Model model) {
-		List<Product> productsByCategory = productService.getProductsByCategory(category);
-		model.addAttribute("productsByCategory", productsByCategory);
-		return "_03productsByCategory";
+	@RequestMapping("/category/{categoryId}")
+	public String getProductsByCategory(@PathVariable("categoryId") String category, Model model) {
+		List<Product> products = productService.getProductsByCategory(category);
+		model.addAttribute("products", products);
+		return "_03productList";
 	}
 }
