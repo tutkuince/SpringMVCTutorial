@@ -89,4 +89,9 @@ listOfProducts.add(laptopAppleMacbook);
 	public List<Product> getProductsByCategory(String category) {
 		return listOfProducts.stream().filter(p -> p.getCategory().equalsIgnoreCase(category)).collect(Collectors.toList());
 	}
+
+	@Override
+	public List<Product> getProductsByBrands(List<String> brands) {
+		return listOfProducts.stream().filter(p -> brands.contains(p.getManufacturer().toLowerCase())).collect(Collectors.toList());
+	}
 }
