@@ -20,6 +20,9 @@
 						<li>Available <b>${product.unitsInStock }</b> units in stock
 						</li>
 						<li>
+							<a href="<c:url value="/products/productsByCategory?categoryId=${product.category }"/>">${product.category }</a>
+						</li>
+						<li>
 							<a href="<c:url value="/products/productDetail?id=${product.productId }"/>">Go Full Details </a>
 						</li>
 					</ul>
