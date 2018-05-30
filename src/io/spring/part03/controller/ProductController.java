@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.MatrixVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import io.spring.part03.model.Product;
@@ -40,10 +42,21 @@ public class ProductController {
 		model.addAttribute("products", products);
 		return "_03productList";
 	}
-	
+
 	@RequestMapping("/brand/{brands}")
 	public String getProductsByBrands(@MatrixVariable(pathVar = "brands") List<String> brands, Model model) {
 		model.addAttribute("products", productService.getProductsByBrands(brands));
 		return "_03productList";
+	}
+
+	@RequestMapping(value = "/add", method= RequestMethod.GET)
+	public String getNewProductForm(@ModelAttribute("newProduct") Product product) {
+		return "_03addproduct";
+	}
+	
+	@RequestMapping(value = "/add", method= RequestMethod.POST)
+	public String addProduct(@ModelAttribute("newProduct") Product product) {
+		productService.addProduct(product);
+		return "redirect:/products/productList";
 	}
 }

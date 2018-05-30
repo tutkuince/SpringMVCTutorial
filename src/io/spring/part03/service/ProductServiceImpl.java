@@ -33,4 +33,9 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> getProductsByBrands(List<String> brands) {
 		return productDAO.getProductsByBrands(brands);
 	}
+
+	@Override
+	public void addProduct(Product product) {
+		productDAO.addProduct(product);
+	}
 }

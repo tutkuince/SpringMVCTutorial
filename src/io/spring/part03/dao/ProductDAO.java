@@ -10,4 +10,5 @@ public interface ProductDAO {
 	Product getByProductId(String productId);
 	List<Product> getProductsByCategory(String category);
 	List<Product> getProductsByBrands(List<String> brands);
+	void addProduct(Product product);
 }
