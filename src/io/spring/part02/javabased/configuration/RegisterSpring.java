@@ -12,10 +12,10 @@ public class RegisterSpring implements WebApplicationInitializer {
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext webApplicationContext = new AnnotationConfigWebApplicationContext();
-		 webApplicationContext.register(BeanConfiguration.class);
-		
+		webApplicationContext.register(BeanConfiguration.class);
+
 		DispatcherServlet dispatcherServlet = new DispatcherServlet(webApplicationContext);
-		
+
 		ServletRegistration.Dynamic dynamic = servletContext.addServlet("dispatcher", dispatcherServlet);
 		dynamic.addMapping("/");
 		dynamic.setLoadOnStartup(1);
