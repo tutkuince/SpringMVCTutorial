@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<h1>${product.manufacturer ${product.name }</h1>
+	<h1>${product.manufacturer} ${product.name }</h1>
 	<p>
 		<b>Product Id </b> ${product.productId }
 	</p>
