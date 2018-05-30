@@ -7,5 +7,5 @@ import io.spring.part03.model.Product;
 public interface ProductService {
 	List<Product> getAllProduct();
 	Product getByProductId(String productId);
-	
+	List<Product> getProductsByCategory(String category);
 }

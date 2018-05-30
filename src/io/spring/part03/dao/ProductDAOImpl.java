@@ -2,6 +2,7 @@ package io.spring.part03.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -103,5 +104,10 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public Product getByProductId(String productId) {
 		return listOfProducts.stream().filter(p -> p.getProductId().equals(productId)).findAny().orElse(null);
+	}
+
+	@Override
+	public List<Product> getProductsByCategory(String category) {
+		return listOfProducts.stream().filter(p -> p.getCategory().equals(category)).collect(Collectors.toList());
 	}
 }
